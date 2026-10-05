@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KIRAX — PLAY. CLIP. RISE.</title>
+  <meta name="description" content="KIRAX — univers FPS et Call of Duty. Clips, loadouts, actualités et communauté.">
+  <style>
+    :root{
+      --bg:#07070a; --panel:#111116; --panel2:#17131a;
+      --pink:#f3a4d1; --pink2:#ff6fbd; --violet:#9c5cff;
+      --text:#f7f2f6; --muted:#aaa1aa; --line:#2c2630;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(circle at 75% 8%,rgba(255,111,189,.13),transparent 28rem),
+      radial-gradient(circle at 10% 35%,rgba(156,92,255,.08),transparent 24rem),
+      var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+    a{text-decoration:none;color:inherit}
+    .top{position:sticky;top:0;z-index:20;background:rgba(7,7,10,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{max-width:1200px;margin:auto;display:flex;align-items:center;gap:26px;padding:16px 22px}
+    .logo{font-size:31px;font-weight:950;font-style:italic;letter-spacing:-2px;color:var(--pink)}
+    .logo span{display:block;font-size:9px;letter-spacing:4px;font-style:normal;color:#fff;margin-top:-4px}
+    nav .links{display:flex;gap:22px;margin-left:auto;font-size:13px;color:#d9d0d8}
+    nav .links a:hover{color:var(--pink)}
+    .social{border:1px solid var(--pink);padding:9px 14px;border-radius:999px;color:var(--pink);font-size:12px;font-weight:700}
+    .hero{max-width:1200px;margin:auto;min-height:570px;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:20px;padding:60px 22px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;right:-100px;top:30px;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(243,164,209,.20),transparent 65%);pointer-events:none}
+    .eyebrow{color:var(--pink);font-size:12px;letter-spacing:4px;font-weight:800}
+    h1{font-size:clamp(70px,11vw,140px);line-height:.78;margin:16px 0;color:#fff;font-style:italic;letter-spacing:-8px;text-shadow:8px 8px 0 rgba(243,164,209,.18)}
+    .slogan{font-size:17px;letter-spacing:7px;color:var(--pink);font-weight:800}
+    .hero p{max-width:520px;color:var(--muted);line-height:1.7}
+    .cta{display:inline-block;margin-top:18px;background:var(--pink);color:#100a10;padding:14px 20px;border-radius:8px;font-weight:900}
+    .cta:hover{background:#fff}
+    .visual{height:430px;border:1px solid #382c38;border-radius:22px;position:relative;overflow:hidden;background:
+      linear-gradient(135deg,rgba(243,164,209,.13),transparent 40%),
+      radial-gradient(circle at 70% 30%,rgba(156,92,255,.35),transparent 32%),
+      #0e0c11;box-shadow:0 0 70px rgba(243,164,209,.08)}
+    .visual .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,255,255,.025) 6px);mix-blend-mode:screen}
+    .visual .silhouette{position:absolute;right:8%;bottom:-20px;width:55%;height:85%;border-radius:45% 45% 10% 10%;background:linear-gradient(135deg,#21151f,#08080a 70%);box-shadow:-20px 0 70px rgba(243,164,209,.18)}
+    .visual .glow{position:absolute;right:28%;top:24%;width:120px;height:120px;border-radius:50%;background:rgba(243,164,209,.24);filter:blur(18px)}
+    .visual .mark{position:absolute;left:28px;bottom:25px;font-weight:900;font-style:italic;color:var(--pink);font-size:24px}
+    .section{max-width:1200px;margin:auto;padding:42px 22px}
+    .section-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px}
+    .section-title h2{margin:0;font-size:26px}
+    .section-title span{color:var(--pink);font-size:12px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{background:linear-gradient(160deg,#171219,#0f0e12);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#30202d,#17111b 55%,#28134a);display:grid;place-items:center;position:relative}
+    .thumb b{width:50px;height:50px;border:2px solid var(--pink);border-radius:50%;display:grid;place-items:center;color:var(--pink)}
+    .card-body{padding:14px}.tag{font-size:9px;color:var(--pink);letter-spacing:1px}.card h3{margin:7px 0 4px;font-size:15px}.meta{color:#8f8890;font-size:11px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feature{padding:22px;border:1px solid var(--line);border-radius:14px;background:#0f0d12}
+    .feature .icon{font-size:28px;color:var(--pink)} .feature h3{margin:10px 0 6px}.feature p{color:var(--muted);font-size:13px;line-height:1.5}
+    .community{border:1px solid #392d39;border-radius:18px;padding:35px;background:linear-gradient(100deg,rgba(243,164,209,.12),rgba(156,92,255,.07),transparent);display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .community h2{margin:0 0 8px}.community p{margin:0;color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:28px 22px;color:#77717a;font-size:11px;text-align:center}
+    @media(max-width:850px){
+      nav{gap:12px}.links{display:none!important}.hero{grid-template-columns:1fr;padding-top:45px}.visual{height:300px}
+      .cards{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:1fr}.community{display:block}.community .cta{margin-top:20px}
+    }
+    @media(max-width:520px){h1{font-size:78px}.cards{grid-template-columns:1fr}.slogan{font-size:13px;letter-spacing:4px}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <nav>
+      <a class="logo" href="#">KIRAX<span>PLAY. CLIP. RISE.</span></a>
+      <div class="links">
+        <a href="#clips">Clips</a><a href="#guides">Guides & Loadouts</a><a href="#news">Actualités</a><a href="#room">KIRAX Room</a>
+      </div>
+      <a class="social" href="https://www.tiktok.com/@kiraxcod" target="_blank" rel="noopener">TikTok</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">CALL OF DUTY • FPS • GAMING</div>
+        <h1>KIRAX</h1>
+        <div class="slogan">PLAY. CLIP. RISE.</div>
+        <p>Un univers FPS féminin, doux et agressif à la fois. Clips, loadouts, actualités et communauté autour de Call of Duty.</p>
+        <a class="cta" href="#clips">Voir mes derniers clips →</a>
+      </div>
+      <div class="visual" aria-label="Visuel KIRAX">
+        <div class="glow"></div><div class="silhouette"></div><div class="scan"></div>
+        <div class="mark">GIRL GAMER • FPS ♡</div>
+      </div>
+    </section>
+
+    <section class="section" id="clips">
+      <div class="section-title"><h2>DERNIERS CLIPS ♡</h2><span>Voir tous les clips →</span></div>
+      <div class="cards">
+        <article class="card"><div class="thumb"><b>▶</b></div><div class="card-body"><div class="tag">BLACK OPS</div><h3>Premier clip KIRAX</h3><div class="meta">Ton gameplay • bientôt en ligne</div></div></article>
+        <article class="card"><div class="thumb"><b>▶</b></div><div class="card-body"><div class="tag">MULTIJOUEUR</div><h3>Clutch de folie</h3><div class="meta">À remplacer par ton clip</div></div></article>
+        <article class="card"><div class="thumb"><b>▶</b></div><div class="card-body"><div class="tag">ZOMBIES</div><h3>Un enchaînement parfait</h3><div class="meta">À venir</div></div></article>
+        <article class="card"><div class="thumb"><b>▶</b></div><div class="card-body"><div class="tag">WARZONE</div><h3>Flanking réussi 😎</h3><div class="meta">À venir</div></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="guides">
+      <div class="feature-grid">
+        <article class="feature"><div class="icon">⌖</div><h3>Guides & Loadouts</h3><p>Classes, armes, réglages et astuces pour améliorer ton jeu.</p></article>
+        <article class="feature" id="news"><div class="icon">▤</div><h3>Actualités</h3><p>Les nouveautés Call of Duty, mises à jour, événements et infos importantes.</p></article>
+        <article class="feature" id="room"><div class="icon">♧</div><h3>KIRAX Room</h3><p>Une communauté pour partager ses clips, relever des défis et progresser ensemble.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="community">
+        <div><h2>Plus qu'un jeu… une communauté. ♡</h2><p>KIRAX commence avec toi. La suite, on la construira ensemble.</p></div>
+        <a class="cta" href="https://www.tiktok.com/@kiraxcod" target="_blank" rel="noopener">Rejoindre KIRAX →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>KIRAX © 2026 • PLAY. CLIP. RISE. • Site indépendant, non affilié à Activision ou Call of Duty.</footer>
+</body>
+</html>
